@@ -42,16 +42,20 @@ public class StickyExecutorManagerTest {
         int maxNumberOfSTE = 1;
         ExecutorManager<String> manager = new StickyExecutorManager<String>(provider, maxNumberOfSTE);
 
+        assertThatAllExecutionsForSameMonitorResultInSameExecutor(manager, 1000);
+        verify(provider).newExecutor();
+
+    }
+
+    private void assertThatAllExecutionsForSameMonitorResultInSameExecutor(ExecutorManager<String> manager, int numberOfGetters) {
         String monitor = "some monitor";
 
         Executor executorForMonitor = manager.getExecutorForMonitor(monitor);
 
         assertNotNull(executorForMonitor);
-        assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor)));
-        assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor)));
-        assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor)));
-        verify(provider).newExecutor();
-
+        for (int i = 0; i < numberOfGetters; ++i) {
+            assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor)));
+        }
     }
 
     @Test
@@ -64,17 +68,35 @@ public class StickyExecutorManagerTest {
         int maxNumberOfSTE = 1;
         ExecutorManager<String> manager = new StickyExecutorManager<String>(provider, maxNumberOfSTE);
 
+        assertThatTwoInterleavingGettersReceiveSameExecutor(manager, 1000);
+        verify(provider).newExecutor();
+
+    }
+
+    private void assertThatTwoInterleavingGettersReceiveSameExecutor(ExecutorManager<String> manager, int count) {
         String monitor1 = "some monitor1";
         String monitor2 = "some completely other monitor";
 
         Executor executorForMonitor = manager.getExecutorForMonitor(monitor1);
-
         assertNotNull(executorForMonitor);
-        assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor1)));
-        assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor2)));
-        assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor1)));
-        assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor2)));
-        assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor1)));
+
+        for (int i = 0; i < count; ++i) {
+            assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor1)));
+            assertThat(executorForMonitor, sameInstance(manager.getExecutorForMonitor(monitor2)));
+        }
+    }
+
+    @Test
+    public void testGetExecutorForMonitorReturnsTheSameExecutorEvenWhenMultipleAreAvailableForTheSameMonitor() throws Exception {
+        Executor executor = mock(Executor.class);
+
+        ExecutorsProvider provider = mock(ExecutorsProvider.class);
+        when(provider.newExecutor()).thenReturn(executor);
+
+        int maxNumberOfSTE = 1000;
+        ExecutorManager<String> manager = new StickyExecutorManager<String>(provider, maxNumberOfSTE);
+
+        assertThatAllExecutionsForSameMonitorResultInSameExecutor(manager, 1000);
         verify(provider).newExecutor();
 
     }
