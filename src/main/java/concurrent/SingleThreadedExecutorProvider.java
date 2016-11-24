@@ -4,8 +4,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
- * User: goldberg333
- * Date: 23.10.11
+ * Provides instances of single threaded executors.
  */
 public class SingleThreadedExecutorProvider implements ExecutorsProvider {
 

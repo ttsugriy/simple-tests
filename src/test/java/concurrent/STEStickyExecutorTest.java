@@ -1,6 +1,5 @@
 package concurrent;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.concurrent.Executor;
@@ -8,16 +7,9 @@ import java.util.concurrent.Executor;
 import static org.mockito.Mockito.*;
 
 /**
- * User: goldberg333
- * Date: 23.10.11
+ * Tests for {@link STEStickyExecutor}
  */
-
 public class STEStickyExecutorTest {
-
-    @Before
-    public void setUp() throws Exception {
-
-    }
 
     @Test
     public void testStickyExecutorUsesExecutorFromProvidedExecutorManager() throws Exception {

@@ -1,11 +1,9 @@
 package concurrent;
 
 /**
- * User: goldberg333
- * Date: 22.10.11
+ * Runnable implementation which knows how to defer its execution.
  */
 public class DeferredRunnable implements Runnable {
-    
     private final Deferrer deferrer;
     private final long delayInMillis;
     private final Runnable runnable;

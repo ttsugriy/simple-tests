@@ -4,11 +4,13 @@ import java.util.*;
 import java.util.concurrent.Executor;
 
 /**
- * User: goldberg333
- * Date: 23.10.11
+ * Executor manager implementation which uses monitors to execute runnables
+ * with same monitor sequentially.
+ *
+ * Submitted runnables with different monitors may or may not run in parallel,
+ * subject to executor service availability.
  */
 public class StickyExecutorManager<T> implements ExecutorManager<T> {
-
     private final ExecutorsProvider provider;
     private final int maxNumberOfSTE;
     private final Map<T, Executor> monitorToProvider;
@@ -46,6 +48,6 @@ public class StickyExecutorManager<T> implements ExecutorManager<T> {
 
     @Override
     public synchronized void freeExecutorForMonitor(T monitor) {
-        //To change body of implemented methods use File | Settings | File Templates.
+       // TODO: implement
     }
 }

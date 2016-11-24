@@ -13,8 +13,7 @@ import static junit.framework.Assert.assertNotNull;
 import static org.mockito.Mockito.verify;
 
 /**
- * User: goldberg333
- * Date: 22.10.11
+ * Tests for {@link DeferredExecutorImpl}
  */
 public class DeferredExecutorImplTest {
 

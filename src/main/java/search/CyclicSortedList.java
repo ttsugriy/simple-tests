@@ -6,11 +6,10 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * User: goldberg333
- * Date: 29.10.11
+ * List which can speed up some operations based on a fact that underlying
+ * array is cyclically sorted.
  */
 public class CyclicSortedList<T extends Comparable<T>> implements List<T> {
-
     private final List<T> underlying;
     private int offset;
     private boolean offsetIsFound;
@@ -18,8 +17,6 @@ public class CyclicSortedList<T extends Comparable<T>> implements List<T> {
     public CyclicSortedList(List<T> underlying) {
         this.underlying = underlying;
     }
-
-
 
     @Override
     public boolean contains(Object o) {

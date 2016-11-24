@@ -13,8 +13,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * User: goldberg333
- * Date: 23.10.11
+ * Tests for {@link StickyExecutorManager}
  */
 public class StickyExecutorManagerTest {
 

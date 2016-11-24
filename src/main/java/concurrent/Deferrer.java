@@ -1,8 +1,7 @@
 package concurrent;
 
 /**
- * User: goldberg333
- * Date: 22.10.11
+ * A way to defer execution.
  */
 public interface Deferrer {
 

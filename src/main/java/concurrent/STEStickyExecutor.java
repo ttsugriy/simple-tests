@@ -3,11 +3,10 @@ package concurrent;
 import java.util.concurrent.Executor;
 
 /**
- * User: goldberg333
- * Date: 23.10.11
+ * Ensures sequential execution of runnables with same monitor by using
+ * single threaded exeuctors.
  */
 public class STEStickyExecutor<T> implements StickyExecutor<T> {
-
     private final StickyExecutorManager<T> executorManager;
 
     public STEStickyExecutor(StickyExecutorManager<T> executorManager) {
@@ -23,6 +22,6 @@ public class STEStickyExecutor<T> implements StickyExecutor<T> {
 
     @Override
     public void execute(Runnable command) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        // TODO: implement
     }
 }

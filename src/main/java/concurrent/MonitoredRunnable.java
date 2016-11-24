@@ -1,11 +1,11 @@
 package concurrent;
 
 /**
- * User: goldberg333
- * Date: 23.10.11
+ * Runnable with a coordination monitor.
+ *
+ * Minotors can be unique or identifying groups of runnables.
  */
 public abstract class MonitoredRunnable<T> implements Runnable {
-    
     private final T monitor;
 
     protected MonitoredRunnable(T monitor) {

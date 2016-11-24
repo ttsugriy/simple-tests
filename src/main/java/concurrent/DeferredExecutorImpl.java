@@ -3,8 +3,8 @@ package concurrent;
 import java.util.concurrent.Executor;
 
 /**
- * User: goldberg333
- * Date: 22.10.11
+ * Executor delegate which uses {@link DeferredRunnable} to defer
+ * its execution.
  */
 public class DeferredExecutorImpl implements DeferredExecutor {
 

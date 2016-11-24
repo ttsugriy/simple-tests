@@ -10,8 +10,7 @@ import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 
 /**
- * User: goldberg333
- * Date: 22.10.11
+ * Tests for {@link DeferredRunnable}
  */
 public class DeferredRunnableTest {
 

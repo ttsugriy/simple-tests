@@ -9,8 +9,7 @@ import java.util.Collections;
 import static junit.framework.Assert.assertEquals;
 
 /**
- * User: goldberg333
- * Date: 29.10.11
+ * Tests for {@link CyclicSortedList}
  */
 public class CyclicSortedListTest {
 

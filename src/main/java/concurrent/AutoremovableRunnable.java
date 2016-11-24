@@ -1,8 +1,7 @@
 package concurrent;
 
 /**
- * User: goldberg333
- * Date: 23.10.11
+ * Runnable implementation which releases its monitor after it's executed.
  */
 public class AutoremovableRunnable<T> implements Runnable {
 

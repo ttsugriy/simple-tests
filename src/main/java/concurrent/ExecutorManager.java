@@ -3,11 +3,9 @@ package concurrent;
 import java.util.concurrent.Executor;
 
 /**
- * User: goldberg333
- * Date: 23.10.11
+ * Manages thread executors based using monitors.
  */
 public interface ExecutorManager<T> {
-
     /**
      * Get executor for provided monitor
      * @param monitor monitor
@@ -21,5 +19,4 @@ public interface ExecutorManager<T> {
      * @param monitor monitor
      */
     void freeExecutorForMonitor(T monitor);
-    
 }

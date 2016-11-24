@@ -1,6 +1,5 @@
 package concurrent;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
 
@@ -9,14 +8,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * User: goldberg333
- * Date: 23.10.11
+ * Tests for {@link AutoremovableRunnable}
  */
 public class AutoremovableRunnableTest {
-    @Before
-    public void setUp() throws Exception {
-
-    }
 
     @Test
     public void testThatAutoremovableRunnableRunsUnderlyingRunnableAndThanFreesMonitor() {
