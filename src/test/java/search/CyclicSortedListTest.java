@@ -52,7 +52,7 @@ public class CyclicSortedListTest {
         cyclicSortedList.add(111);
         assertEquals(someValue, cyclicSortedList.get(2));
     }
-    
+
     @Test
     public void testRegularBinarySearchFindsElementUsingAdapterForCyclicSortedLists() {
         Integer someValue = 3;
@@ -60,7 +60,7 @@ public class CyclicSortedListTest {
         cyclicSortedList.add(5);
         cyclicSortedList.add(someValue);
         cyclicSortedList.add(4);
-        
+
         assertEquals(2, Collections.binarySearch(cyclicSortedList, someValue) + cyclicSortedList.getOffset());
     }
 
